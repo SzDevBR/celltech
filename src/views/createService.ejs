@@ -1,0 +1,24 @@
+<!-- views/createService.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar Novo Serviço</title>
+</head>
+<body>
+  <h1>Criar Novo Serviço</h1>
+  <form action="/services" method="post">
+    <label for="subject">Assunto do Problema:</label>
+    <input type="text" id="subject" name="subject" required><br>
+    <label for="initialBudget">Orçamento Inicial:</label>
+    <input type="number" id="initialBudget" name="initialBudget" required><br>
+    <label for="description">Descrição:</label>
+    <textarea id="description" name="description" required></textarea><br>
+    <label for="budgetAmount">Valor de Orçamento:</label>
+    <input type="number" id="budgetAmount" name="budgetAmount" required><br>
+    <button type="submit">Criar Serviço</button>
+  </form>
+</body>
+</html>
