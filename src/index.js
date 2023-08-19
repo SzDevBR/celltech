@@ -23,10 +23,15 @@ mongoose.connect(process.env.MONGODB_URL, {
 
 mongoose.set('strictQuery', false);
 
+const crypto = require('crypto');
+
+// Gere uma chave secreta aleatória com 64 bytes (512 bits)
+const secretKey = crypto.randomBytes(64).toString('hex');
+
 // Configuração da sessão
 app.use(
   session({
-    secret: 'seuSegredoAqui',
+    secret: secretKey,
     resave: false,
     saveUninitialized: false,
   })
