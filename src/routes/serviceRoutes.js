@@ -33,8 +33,13 @@ router.get('/dashboard', (req, res) => {
 });
 
 // Rota para a página inicial
-router.get('/', (req, res) => {
-  res.render('index');
+router.get('/', async (req, res) => {
+  try {
+    const status = await Service.findOne({ code: req.params.code });
+    res.render('index', { status: status }); // Passando a variável status para a visualização
+  } catch (error) {
+    res.status(500).json({ error: 'Erro ao buscar status do serviço.' });
+  }
 });
 
 // Rota para a verificação de status (POST)
