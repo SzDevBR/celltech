@@ -17,7 +17,7 @@ router.post(
   '/login',
   passport.authenticate('local', {
     successRedirect: '/dashboard',
-    failureRedirect: '/services/login',
+    failureRedirect: '/login',
     failureFlash: true,
   })
 );
@@ -28,7 +28,7 @@ router.get('/dashboard', (req, res) => {
   if (req.isAuthenticated()) {
     res.render('dashboard', { user: req.user });
   } else {
-    res.redirect('/services/login');
+    res.redirect('/login');
   }
 });
 
