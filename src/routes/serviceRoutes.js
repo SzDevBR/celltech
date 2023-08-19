@@ -4,6 +4,7 @@ const express = require('express');
 const passport = require('passport');
 const serviceController = require('../controllers/serviceController');
 
+
 const router = express.Router();
 
 // Página de login
@@ -53,5 +54,7 @@ router.get('/create', (req, res) => {
 router.get('/:code', serviceController.getServiceStatus);
 router.post('/', serviceController.createService);
 router.put('/:code', serviceController.updateService);
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 module.exports = router;
