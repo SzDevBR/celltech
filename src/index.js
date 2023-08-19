@@ -38,7 +38,6 @@ app.use(
 );
 
 const bcrypt = require('bcrypt');
-const User = require('./models/user'); // Substitua pelo caminho correto
 
 // Crie um usuário administrador
 const adminUsername = 'admin';
@@ -81,7 +80,7 @@ app.use(bodyParser.json());
 app.set('view engine', 'ejs'); // Defina o mecanismo de visualização para o EJS
 
 // Use o roteador de serviços para as rotas relacionadas a serviços
-app.use('/services', serviceRoutes);
+app.use('/', serviceRoutes);
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.listen(PORT, () => {
