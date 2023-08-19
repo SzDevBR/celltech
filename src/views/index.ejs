@@ -20,8 +20,9 @@
   </form>
 
   <% if (status) { %>
+    <h3><strong>Código de Serviço:</strong> <%= serviceCode %></h3>
     <p>Status do Item: <%= status %></p>
-    <p><strong>Status:</strong> <%= service.status %></p>
+    <p>Status: <%= service.status %></p>
     <p><strong>Comentários do Técnico:</strong> <%= service.technicianComments %></p>
   <% } %>
 </body>
