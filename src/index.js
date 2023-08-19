@@ -12,7 +12,7 @@ const User = require('./models/user'); // Substitua pelo seu modelo de usuário
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const MONGODB_URI = process.env.MONGODB_URL;
+const MONGODB_URI = process.env.MONGODB_URL
 app.use(bodyParser.json());
 
 mongoose.connect(MONGODB_URI, {
