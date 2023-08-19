@@ -37,7 +37,7 @@ const User = require('./models/user'); // Substitua pelo caminho correto
 
 // Crie um usuário administrador
 const adminUsername = 'admin';
-const adminPassword = process.env.ADMIN_SENHA; // Defina uma senha forte aqui
+const adminPassword = process.env.ADMIn_SENHA; // Defina uma senha forte aqui
 const adminRole = 'admin'; // Pode ser uma string que indique o papel de administrador
 
 // Criptografe a senha
