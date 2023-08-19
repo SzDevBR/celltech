@@ -32,7 +32,37 @@ app.use(
   })
 );
 
+const bcrypt = require('bcrypt');
+const User = require('./models/user'); // Substitua pelo caminho correto
 
+// Crie um usuário administrador
+const adminUsername = 'admin';
+const adminPassword = process.env.ADMIN_SENHA; // Defina uma senha forte aqui
+const adminRole = 'admin'; // Pode ser uma string que indique o papel de administrador
+
+// Criptografe a senha
+bcrypt.hash(adminPassword, 10, async (err, hashedPassword) => {
+  if (err) {
+    console.error('Erro ao criptografar senha:', err);
+    return;
+  }
+
+  try {
+    // Crie o usuário administrador
+    const adminUser = new User({
+      username: adminUsername,
+      password: hashedPassword,
+      role: adminRole,
+      // ... outros campos
+    });
+
+    // Salve o usuário no banco de dados
+    await adminUser.save();
+    console.log('Usuário administrador criado com sucesso.');
+  } catch (error) {
+    console.error('Erro ao criar usuário administrador:', error);
+  }
+});
 
 app.use(passport.initialize());
 app.use(passport.session());
