@@ -46,7 +46,6 @@ app.use(passport.session());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/services', serviceRoutes);
 
