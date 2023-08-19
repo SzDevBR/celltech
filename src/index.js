@@ -45,8 +45,7 @@ app.set('view engine', 'ejs'); // Defina o mecanismo de visualização para o EJ
 
 // Use o roteador de serviços para as rotas relacionadas a serviços
 app.use('/services', serviceRoutes);
-
-app.use('/services', serviceRoutes);
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
