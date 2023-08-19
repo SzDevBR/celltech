@@ -32,7 +32,7 @@ router.get('/dashboard', (req, res) => {
 });
 
 // Rota para a página inicial
-router.get('/index', (req, res) => {
+router.get('/', (req, res) => {
   res.render('index');
 });
 
