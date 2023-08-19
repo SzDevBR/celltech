@@ -33,6 +33,21 @@ exports.getServiceStatus = async (req, res) => {
   }
 };
 
+exports.getServiceStatus = async (req, res) => {
+  try {
+    const serviceCode = req.body.serviceCode;
+    const service = await Service.findOne({ code: serviceCode });
+
+    if (!service) {
+      return res.render('index', { errorMessage: 'Serviço não encontrado.' });
+    }
+
+    res.render('index', { status: service });
+  } catch (error) {
+    res.render('index', { errorMessage: 'Erro ao buscar serviço.' });
+  }
+};
+
 exports.updateService = async (req, res) => {
   try {
     const service = await Service.findOne({ code: req.params.code });
