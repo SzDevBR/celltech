@@ -19,6 +19,8 @@ mongoose.connect(process.env.MONGODB_URL, {
   useUnifiedTopology: true,
 });
 
+mongoose.set('strictQuery', false);
+
 // Configuração da sessão
 app.use(
   session({
@@ -27,6 +29,7 @@ app.use(
     saveUninitialized: false,
   })
 );
+
 
 
 app.use(bodyParser.json());
