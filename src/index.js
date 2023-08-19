@@ -37,7 +37,7 @@ app.use(
 
 app.use(bodyParser.json());
 app.set('view engine', 'ejs'); // Defina o mecanismo de visualização para o EJS
-app.set('views', path.join(__dirname, 'views'));
+// app.set('views', path.join(__dirname, 'views'));
 
 app.use(passport.initialize());
 app.use(passport.session());
