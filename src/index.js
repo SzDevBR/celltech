@@ -8,6 +8,9 @@ const serviceRoutes = require('./routes/serviceRoutes');
 const session = require('express-session'); // Adicione esta linha
 const passport = require('passport'); // Adicione esta linha
 const User = require('./models/user'); // Substitua pelo seu modelo de usuário
+const path = require('path');
+const dotenv = require('dotenv');
+dotenv.config();
 
 
 const app = express();
