@@ -31,6 +31,15 @@ router.get('/dashboard', (req, res) => {
   }
 });
 
+// Rota para a página inicial
+router.get('/index', (req, res) => {
+  res.render('index');
+});
+
+// Rota para a verificação de status (POST)
+router.post('/check-status', serviceController.getServiceStatus);
+
+
 // Rota de logout
 router.get('/logout', (req, res) => {
   req.logout();
