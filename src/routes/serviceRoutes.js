@@ -55,6 +55,6 @@ router.get('/:code', serviceController.getServiceStatus);
 router.post('/', serviceController.createService);
 router.put('/:code', serviceController.updateService);
 
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 module.exports = router;
