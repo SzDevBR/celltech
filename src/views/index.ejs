@@ -11,10 +11,6 @@
   <h1>Bem-vindo à CellTech</h1>
   <p>Conheça mais sobre nossos serviços de informática.</p>
 
-  <% if (errorMessage) { %>
-    <p class="error-message"><%= errorMessage %></p>
-  <% } %>
-
   <h2>Verificar Status do Item</h2>
   <form action="/services/check-status" method="post">
     <label for="serviceCode">Código de Serviço:</label>
