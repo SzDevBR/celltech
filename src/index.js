@@ -15,7 +15,6 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-app.use(bodyParser.json());
 
 mongoose.connect(process.env.MONGODB_URL, {
   useNewUrlParser: true,
@@ -35,10 +34,6 @@ app.use(
 
 
 
-app.use(bodyParser.json());
-app.set('view engine', 'ejs'); // Defina o mecanismo de visualização para o EJS
-// app.set('views', path.join(__dirname, 'views'));
-
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -46,6 +41,12 @@ app.use(passport.session());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// Configuração do servidor
+app.use(bodyParser.json());
+app.set('view engine', 'ejs'); // Defina o mecanismo de visualização para o EJS
+
+// Use o roteador de serviços para as rotas relacionadas a serviços
+app.use('/services', serviceRoutes);
 
 app.use('/services', serviceRoutes);
 
