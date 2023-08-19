@@ -78,7 +78,7 @@ app.use(bodyParser.json());
 app.set('view engine', 'ejs'); // Defina o mecanismo de visualização para o EJS
 
 // Use o roteador de serviços para as rotas relacionadas a serviços
-app.use('/', serviceRoutes);
+app.use('/service', serviceRoutes);
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.listen(PORT, () => {
