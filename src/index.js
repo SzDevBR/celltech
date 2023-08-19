@@ -34,6 +34,7 @@ app.use(
 
 app.use(bodyParser.json());
 app.set('view engine', 'ejs'); // Defina o mecanismo de visualização para o EJS
+app.set('views', path.join(__dirname, 'views'));
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -41,6 +42,8 @@ app.use(passport.session());
 // Serialize e deserialize o usuário
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/services', serviceRoutes);
 
