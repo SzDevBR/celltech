@@ -49,7 +49,7 @@ router.post('/check-status', serviceController.getServiceStatus);
 // Rota de logout
 router.get('/logout', (req, res) => {
   req.logout();
-  res.redirect('/services/login');
+  res.redirect('/login');
 });
 
 router.get('/create', (req, res) => {
